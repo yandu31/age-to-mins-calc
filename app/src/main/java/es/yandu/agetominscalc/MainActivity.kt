@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         val month = myCalendar.get(Calendar.MONTH)
         val day =  myCalendar.get(Calendar.DAY_OF_MONTH)
         
-        
+        /* Create Date Picker Dialog and pass its Interface OnClickListener as lambda function */
         val dpd = DatePickerDialog(this,
             { _, selectedYear, selectedMonth, selectedDayOfMonth ->
                 Toast.makeText(this,
