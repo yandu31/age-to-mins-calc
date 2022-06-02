@@ -3,6 +3,7 @@ package es.yandu.agetominscalc
 import android.app.DatePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
@@ -68,20 +69,15 @@ class MainActivity : AppCompatActivity() {
                     /* Get time from Unix epoch to the selected date */
                     val selectedDateInMinutes = theDate.time / 60000 // Convert ms to mins
 
-                    /* TODO check possible redundancy lines 72 and line 76 */
-                    val currentDate = sdf.parse(sdf.format(System.currentTimeMillis()))
-                    
-                    currentDate?.let { // Run this block only if currentDate is not null
-                        /* Get time from Unix epoch to the current date */
-                        val currentDateInMinutes = currentDate.time / 60000 // Convert ms to mins
+                    /* Get time from Unix epoch to the current date and time */
+                    val currentDateInMinutes = System.currentTimeMillis() / 60000 // Convert ms to mins
 
-                        val differenceInMinutes = currentDateInMinutes - selectedDateInMinutes
+                    val differenceInMinutes = currentDateInMinutes - selectedDateInMinutes
                         
-                        /* Update the related textViews text and their visibility so they appear */
-                        tvAgeInMinutes?.text = differenceInMinutes.toString()
-                        tvAgeInMinutes?.visibility = View.VISIBLE
-                        tvAgeInMinutesText?.visibility = View.VISIBLE
-                    }
+                    /* Update the related textViews text and their visibility so they appear */
+                    tvAgeInMinutes?.text = differenceInMinutes.toString()
+                    tvAgeInMinutes?.visibility = View.VISIBLE
+                    tvAgeInMinutesText?.visibility = View.VISIBLE
                 }
             },
             year,
