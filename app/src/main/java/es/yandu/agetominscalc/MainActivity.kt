@@ -12,17 +12,17 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
     /* Declare textViews that can be updated during the execution */
-    private var tvSelectedDate : TextView? = null
-    private var tvSelectedDateText : TextView? = null
-    private var tvAgeInMinutes : TextView? = null
-    private var tvAgeInMinutesText : TextView? = null
+    private var tvSelectedDate: TextView? = null
+    private var tvSelectedDateText: TextView? = null
+    private var tvAgeInMinutes: TextView? = null
+    private var tvAgeInMinutesText: TextView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         /* Initialize layout button and textViews */
-        val btnDatePicker : Button = findViewById(R.id.btnDatePicker)
+        val btnDatePicker: Button = findViewById(R.id.btnDatePicker)
         tvSelectedDate = findViewById(R.id.tvSelectedDate)
         tvSelectedDateText = findViewById(R.id.tvSelectedDateText)
         tvAgeInMinutes = findViewById(R.id.tvAgeInMinutes)
@@ -60,21 +60,24 @@ class MainActivity : AppCompatActivity() {
                 tvSelectedDate?.visibility = View.VISIBLE
                 tvSelectedDateText?.visibility = View.VISIBLE
 
+                /* Create a SimpleDateFormat pattern and parse the selected date to a Date instance */
                 val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH)
+                val theDate = sdf.parse(selectedDate) // Returns Date object from string
 
-                val theDate = sdf.parse(selectedDate)
+                theDate?.let { // Run this block only if theDate is not null
+                    /* Get time from Unix epoch to the selected date */
+                    val selectedDateInMinutes = theDate.time / 60000 // Convert ms to mins
 
-                theDate?.let {
-                    val selectedDateInMinutes = theDate.time / 60000
-
+                    /* TODO check possible redundancy lines 72 and line 76 */
                     val currentDate = sdf.parse(sdf.format(System.currentTimeMillis()))
-                    currentDate?.let {
-                        val currentDateInMinutes = currentDate.time / 60000
+                    
+                    currentDate?.let { // Run this block only if currentDate is not null
+                        /* Get time from Unix epoch to the current date */
+                        val currentDateInMinutes = currentDate.time / 60000 // Convert ms to mins
 
-                        /* Get selected date formatted as spring and update the related textViews
-                         * text and visibility
-                         */
                         val differenceInMinutes = currentDateInMinutes - selectedDateInMinutes
+                        
+                        /* Update the related textViews text and their visibility so they appear */
                         tvAgeInMinutes?.text = differenceInMinutes.toString()
                         tvAgeInMinutes?.visibility = View.VISIBLE
                         tvAgeInMinutesText?.visibility = View.VISIBLE
@@ -86,6 +89,7 @@ class MainActivity : AppCompatActivity() {
             day
         )
 
+        /* Set the current date as upper limit to the available dates to pick, and show the dialog */
         dpd.datePicker.maxDate = System.currentTimeMillis() - 86400000
         dpd.show()
     }
