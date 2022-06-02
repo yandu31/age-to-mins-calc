@@ -3,7 +3,6 @@ package es.yandu.agetominscalc
 import android.app.DatePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
@@ -17,6 +16,8 @@ class MainActivity : AppCompatActivity() {
     private var tvSelectedDateText: TextView? = null
     private var tvAgeInMinutes: TextView? = null
     private var tvAgeInMinutesText: TextView? = null
+    private var tvAgeInHours: TextView? = null
+    private var tvAgeInHoursText: TextView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +29,8 @@ class MainActivity : AppCompatActivity() {
         tvSelectedDateText = findViewById(R.id.tvSelectedDateText)
         tvAgeInMinutes = findViewById(R.id.tvAgeInMinutes)
         tvAgeInMinutesText = findViewById(R.id.tvAgeInMinutesText)
+        tvAgeInHours = findViewById(R.id.tvAgeInHours)
+        tvAgeInHoursText = findViewById(R.id.tvAgeInHoursText)
 
         btnDatePicker.setOnClickListener {
             clickDatePicker()
@@ -73,11 +76,16 @@ class MainActivity : AppCompatActivity() {
                     val currentDateInMinutes = System.currentTimeMillis() / 60000 // Convert ms to mins
 
                     val differenceInMinutes = currentDateInMinutes - selectedDateInMinutes
+                    val differenceInHours = differenceInMinutes / 60
                         
                     /* Update the related textViews text and their visibility so they appear */
                     tvAgeInMinutes?.text = differenceInMinutes.toString()
                     tvAgeInMinutes?.visibility = View.VISIBLE
                     tvAgeInMinutesText?.visibility = View.VISIBLE
+
+                    tvAgeInHours?.text = differenceInHours.toString()
+                    tvAgeInHours?.visibility = View.VISIBLE
+                    tvAgeInHoursText?.visibility = View.VISIBLE
                 }
             },
             year,

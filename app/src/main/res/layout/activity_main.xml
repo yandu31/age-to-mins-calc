@@ -71,7 +71,7 @@
         android:textColor="@color/textBlue"
         android:textStyle="bold"
         android:textSize="30sp"
-        android:text="0"
+        android:text="@string/minsTillDatePlaceholder"
         android:visibility="invisible" />
 
     <TextView
@@ -82,11 +82,30 @@
         android:text="@string/minsTillDate"
         android:visibility="invisible" />
 
+    <TextView
+        android:id="@+id/tvAgeInHours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/textBlue"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:text="@string/hoursTillDatePlaceholder"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/tvAgeInHoursText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="@string/hoursTillDate"
+        android:visibility="invisible" />
+
     <Button
         android:id="@+id/btnDatePicker"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100sp"
+        android:layout_marginTop="50sp"
         android:backgroundTint="@color/bgHighlight"
         android:text="@string/btnText"
         android:textColor="@color/black"
