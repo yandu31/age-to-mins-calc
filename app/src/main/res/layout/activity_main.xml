@@ -44,17 +44,6 @@
         android:textStyle="bold"
         />
 
-    <Button
-        android:id="@+id/btnDatePicker"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:backgroundTint="@color/bgHighlight"
-        android:text="@string/btnText"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        android:textStyle="bold" />
-
     <TextView
         android:id="@+id/tvSelectedDate"
         android:layout_width="wrap_content"
@@ -63,14 +52,16 @@
         android:textColor="@color/textBlue"
         android:textStyle="bold"
         android:textSize="20sp"
-        android:text="get today's date" />
+        android:text="@string/selectedDatePlaceholder"
+        android:visibility="invisible" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tvSelectedDateText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
-        android:text="@string/selectedDate" />
+        android:text="@string/selectedDate"
+        android:visibility="invisible" />
 
     <TextView
         android:id="@+id/tvAgeInMinutes"
@@ -80,12 +71,25 @@
         android:textColor="@color/textBlue"
         android:textStyle="bold"
         android:textSize="30sp"
-        android:text="0" />
+        android:text="0"
+        android:visibility="invisible" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/tvAgeInMinutesText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
-        android:text="@string/minsTillDate" />
+        android:text="@string/minsTillDate"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/btnDatePicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100sp"
+        android:backgroundTint="@color/bgHighlight"
+        android:text="@string/btnText"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold" />
 </LinearLayout>

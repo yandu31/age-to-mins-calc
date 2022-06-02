@@ -4,7 +4,9 @@
     <string name="text_view1">CALCULATE YOUR</string>
     <string name="text_view2">AGE</string>
     <string name="text_view3">IN MINUTES</string>
-    <string name="btnText">SELECT DATE</string>
+    <string name="btnText">SELECT YOUR BIRTHDATE</string>
     <string name="selectedDate">Selected Date</string>
     <string name="minsTillDate">In minutes till date</string>
+    <string name="selectedDatePlaceholder">No date selected yet</string>
+    <string name="currentDate">%1$d/%2$d/%3$d</string>
 </resources>
