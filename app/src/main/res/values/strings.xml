@@ -7,9 +7,6 @@
     <string name="btnText">SELECT YOUR BIRTHDATE</string>
     <string name="selectedDate">Selected Date</string>
     <string name="selectedDatePlaceholder">No date selected yet</string>
-    <string name="currentDate">%1$d/%2$d/%3$d</string>
-    <string name="minsTillDatePlaceholder">0</string>
     <string name="minsTillDate">Minutes passed from the selected date</string>
-    <string name="hoursTillDatePlaceholder">0</string>
     <string name="hoursTillDate">Hours passed from the selected date</string>
 </resources>
